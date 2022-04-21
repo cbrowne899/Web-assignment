@@ -1,0 +1,39 @@
+@model IList<Mot>
+
+<h3>Mot List</h3>
+
+<!-- button to create a review for the admin and manager user-->
+<a asp-condition=@(User.IsInRole("admin") || User.IsInRole("manager")) class="btn btn-sm btn-secondary"
+   asp-controller="Mot" asp-action="Create">
+  <i style="color:white" class="bi bi-pencil mr-3"></i>Add a new Mot 
+</a>
+
+<!-- table to display all the reviews and their details -->
+<div class="mb-1">
+</div>
+<table class="table">
+  <thead>
+      <th>Vehicle Id</th>
+    <th>Name</th>
+    <th>Mileage</th>
+    <th>Status</th>
+    <th>Report</th>
+  </thead>
+  <tbody>
+    @foreach (var m in Model)
+    {
+      <tr>
+        <td>@m.Vehicle.VehicleId</td>
+        <td>@m.Name</td>
+        <td>@m.mileage</td>
+        <td>@m.Status</td>
+        <td>@m.Report</td>
+        <td>
+          <!--a asp-condition=@(User.IsInRole("admin") || User.IsInRole("manager")) class="btn btn-sm btn-danger"-->
+          <a asp-controller="Mot" asp-action="Delete" asp-route-id=@m.Id><i style="color:white"
+            class="bi bi-trash"></i>Delete</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

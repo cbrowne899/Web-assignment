@@ -1,0 +1,24 @@
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\bin\Debug\net6.0\FMS.Data.deps.json
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\bin\Debug\net6.0\FMS.Data.dll
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\bin\Debug\net6.0\ref\FMS.Data.dll
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\bin\Debug\net6.0\FMS.Data.pdb
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\FMS.Data.csproj.AssemblyReference.cache
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\FMS.Data.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\FMS.Data.AssemblyInfoInputs.cache
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\FMS.Data.AssemblyInfo.cs
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\FMS.Data.csproj.CoreCompileInputs.cache
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\FMS.Data.dll
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\ref\FMS.Data.dll
+c:\Users\Neil Browne\Documents\Chloe Masters\Web Application\Assignment templateee\Assignment-FMS-template (1)\FMS.Data\obj\Debug\net6.0\FMS.Data.pdb
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\bin\Debug\net6.0\FMS.Data.deps.json
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\bin\Debug\net6.0\FMS.Data.dll
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\bin\Debug\net6.0\ref\FMS.Data.dll
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\bin\Debug\net6.0\FMS.Data.pdb
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\FMS.Data.csproj.AssemblyReference.cache
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\FMS.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\FMS.Data.AssemblyInfoInputs.cache
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\FMS.Data.AssemblyInfo.cs
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\FMS.Data.csproj.CoreCompileInputs.cache
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\FMS.Data.dll
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\ref\FMS.Data.dll
+C:\Users\Neil Browne\Documents\Web\Web-assignment\Assignment-FMS-template-master\Assignment-FMS-template-master\FMS.Data\obj\Debug\net6.0\FMS.Data.pdb

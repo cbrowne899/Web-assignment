@@ -1,0 +1,57 @@
+@model MotCreateViewModel
+
+@* <partial name="_Breadcrumbs" model=@(new [] { ("/", "Home"), ("/vehicle", "Vehicles"), ($"/vehicle/details/{Model.VehicleId}",
+    $"{Model.VehicleId}"), ("","Create Mot") })> *@
+
+    <h3 class="mt-4 mb-4">Create Mot - @Model.reg (@Model.Year)</h3>
+
+    <div class="card rounded shadow p-3">
+        <form asp-action="Create Mot">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+
+
+                <div class="form-group">
+                    <!-- hidden field to store MovieId -->
+                    <input type="hidden" asp-for="VehicleId" class="form-control" />
+
+
+                    <!-- text area for user to input name -->
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <textarea rows="1" asp-for="Name" class="form-control"></textarea>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <!-- text area for user to input rating -->
+                    <div class="form-group">
+                        <label asp-for="mileage" class="control-label"></label>
+                        <input rows="1" asp-for="mileage" class="form-control"></input>
+                        <span asp-validation-for="mileage" class="text-danger"></span>
+                    </div>
+
+                    <!-- text area for user to input comment -->
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label"></label>
+                        <textarea rows="5" asp-for="Status" class="form-control"></textarea>
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                     <div class="form-group">
+                        <label asp-for="Report" class="control-label"></label>
+                        <textarea rows="5" asp-for="Report" class="form-control"></textarea>
+                        <span asp-validation-for="Report" class="text-danger"></span>
+                    </div>
+
+                    <!--form group buttons for user to finalise create of review and cancel the creation -->
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a class="btn btn-secondary" asp-action="Details" asp-route-id=@Model.VehicleId>Cancel</a>
+                    </div>
+
+        </form>
+        
+
+         @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        } 

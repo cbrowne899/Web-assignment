@@ -1,0 +1,36 @@
+@model Vehicle
+
+<partial name="_Breadcrumbs" model=@(new []{ ("/","Home"), ("/vehicle","Vehicles"), ("","Delete") })>
+    <div>
+        <!-- movie is displayed with the movie details to ensure user is deleting the correct film -->
+        <div class="col card rounded shadow pt-3">
+
+            <h3 class="mb-4">Delete Vehicle</h3>
+            <h5 class="mb-4">Are you sure you want to delete this vehicle?</h4>
+
+                <dl class="row">
+                    <dt class="col-5">Id</dt>
+                    <dd class="col-7">@Model.VehicleId</dd>
+
+                    <dt class="col-5">Registration</dt>
+                    <dd class="col-7">@Model.Reg</dd>
+
+                    <dt class="col-5">Make</dt>
+                    <dd class="col-7">@Model.Make</dd>
+
+                    <dt class="col-5">Model</dt>
+                    <dd class="col-7">@Model.Model</dd>
+                </dl>
+        </div>
+        <div class="mt-4">
+            <!--Form with buttons to submit post request to DeleteConfirm in
+             Movie controller and a cancel button to return user to movie 
+             index-->
+            <form asp-controller="Vehicle" asp-action="DeleteConfirm" type="post">
+                <input type="hidden" asp-for="VehicleId" />
+                <input type="submit" value="Confirm" class="btn btn-danger" />
+                <a class="btn btn-link" asp-controller="Vehicle" asp-action="Index">Cancel</a>
+            </form>
+        </div>
+
+    </div>

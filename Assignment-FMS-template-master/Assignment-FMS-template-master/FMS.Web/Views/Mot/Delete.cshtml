@@ -1,0 +1,43 @@
+@model Mot
+<partial name="_Breadcrumbs" model=@(new []{ ("/","Home"), ("/mot","Mots"), ("","Delete") })>
+    <div>
+        <!-- display the review with dl list to ensure the user is deleting the correct movie -->
+        <div class="col card rounded shadow pt-3">
+
+            <h3 class="mb-4">Delete Mot History</h3>
+
+            <h5 class="mb-4">Are you sure you want to delete this Mot listing?</h4>
+
+                <dl class="row">
+                    <dt class ="col-5">Vehicle Id</dt>
+                    <dd class ="col-7"> @Model.VehicleId</dd>
+
+                    <dt class="col-5">Name</dt>
+                    <dd class="col-7">@Model.Name</dd>
+
+                    <dt class="col-5">Date of MOT</dt>
+                    <dd class="col-7">@Model.MotDate</dd>
+
+                    <dt class="col-5">Mileage</dt>
+                    <dd class="col-7">@Model.mileage</dd>
+
+                    <dt class="col-5">Status</dt>
+                    <dd class="col-7">@Model.Status</dd>
+
+                    <dt class="col-5">Report</dt>
+                    <dd class="col-7">@Model.Report</dd>
+
+                </dl>
+        </div>
+
+        <div class="mt-4">
+            <!-- Form with buttons to submit post request to DeleteConfirm in
+             Review controller and a cancel button to return user to review 
+             index-->
+            <form asp-controller="Mot" asp-action="DeleteConfirm" type="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Confirm" class="btn btn-danger" />
+                <a class="btn btn-link" asp-controller="Mot" asp-action="Index">Cancel</a>
+            </form>
+        </div>
+    </div>

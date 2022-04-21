@@ -1,0 +1,114 @@
+@model Vehicle
+
+</style>
+<!-- breadcrumb to aid the user and show their path -->
+<partial name="_Breadcrumbs" model=@(new []{ ("/","Home"), ("/vehicle","Vehicles"), ("","Details") })>
+
+
+    <!-- description list to show all the movie's details -->
+    <div class="card shadow rounded mt-4 p-1 mb-2">
+        <div class="row pl-3">
+            <!-- Movie information -->
+            <div class="col-8 mt-4">
+                <h3 class="mb-2">VehicleDetails</h3>
+                <dl class="row">
+                    <dt class="col-5">Registration</dt>
+                    <dd class="col-7">@Model.Reg</dd>
+                    <dt class="col-5">Make</dt>
+                    <dd class="col-7">@Model.Make</dd>
+                       
+                        <!--Use count method to display the number of reviews-->
+                      
+                    </dd>
+                    <dt class="col-5">Model</dt>
+                    <dd class="col-7">@Model.Model</dd>
+                    <dt class="col-5">Fuel Type</dt>
+                    <dd class="col-7">@Model.FuelType</dd>
+
+                    <dt class="col-5">Body Type</dt>
+                    <dd class="col-7">@Model.BodyType</dd>
+
+                    <dt class="col-5">Transmission Type</dt>
+                    <dd class="col-7">@Model.TransmissionType</dd>
+
+                    <dt class="col-5">Number of Doors</dt>
+                    <dd class="col-7">@Model.Doors</dd>
+
+                    <dt class="col-5">Mot Due On: </dt>
+                    <dd class="col-7">@Model.MotDue</dd>
+
+                </dl>
+            </div>
+
+            @* <!-- Display the poster for the film beside the details -->
+            <div class="col-4">
+                <img src="@Model.PosterUrl" class="img-fluid">
+            </div>
+        </div> *@
+
+        <!-- user's action options -->
+        <div class="row pl-3">
+
+            <!-- Create Review navigation link for manager and admin -->
+            <a asp-action="CreateMot" asp-condition=@(User.IsInRole("admin") || @User.IsInRole("manager"))
+                asp-route-id="@Model.VehicleId" class="btn btn-sm btn-dark mr-2">
+                <i class="bi bi-pencil mr-1"></i>Add MOT Record
+            </a>
+
+            <!-- Edit Movie navigation link for manager and admin -->
+            <a asp-controller="Vehicle" asp-condition=@(User.IsInRole("admin") || User.IsInRole("manager"))
+                asp-action="Edit" asp-route-id="@Model.VehicleId" class="btn btn-sm btn-dark mr-1">
+                <i style="color:white" class="bi bi-pen"></i>
+                Edit MOT
+            </a>
+
+            <!-- Index Movie navigation link-->
+            <a asp-controller="Vehicle" asp-action="Index" class="btn btn-sm btn-dark mr-1">
+                <i style="color:white" class="bi bi-list"></i>
+                Vehicle List
+            </a>
+
+            @* <!--Delete button to bring up DeleteModal action for admin user -->
+            <button asp-condition=@(User.IsInRole("admin")) data-toggle="modal" data-target="#deleteModal"
+                class="btn btn-sm btn-danger"><i class="bi bi-trash mr-1"></i>Delete</button>
+
+        </div>
+        <partial name="_DeleteModal" /> *@ 
+
+        <!-- Display Reviews for current movie (Model.Reviews) -->
+        <!-- Table and foreach loop to display review details for the specific movie -->
+        <table class="table table-striped mt-2">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Mot History</th>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Mot Date</th>
+                    <th>Mileage</th>
+                    <th>Status</th>
+                    <th>Report</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model.Mots)
+                {
+                    <tr>
+                        <td>@m.Name</td>
+                        <td>@m.MotDate</td>
+                        <td>@m.mileage</td>
+                        <td>@m.Status</td>
+                        <td>@m.Report</td>
+                        <td>
+                            <!-- Delete button to bring up DeleteModal action for admin user -->
+                        @* <a asp-controller="Movie" asp-action="DeleteReview" asp-condition=@(User.IsInRole("admin") ||
+                            @User.IsInRole("manager")) asp-route-id="@s.Id" class="btn btn-sm btn-danger">
+                                <i class="bi bi-trash"></i>Delete
+                            </a> *@
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

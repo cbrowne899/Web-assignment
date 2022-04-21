@@ -1,0 +1,62 @@
+@model MotViewModel
+
+<partial name="_Breadcrumbs" model=@(new [] { ("/", "Home"), ("/mot", "Mots"), ("","Create") })>
+
+  <h3 class="mt-4 mb-4">Create Mot</h3>
+  <!-- form to create the review asking for all the review attributes -->
+  <form asp-action="Create" class="mb-2">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    @* <div class="form-group">
+      <label asp-for="VehicleId" class="control-label"></label>
+      <select asp-for="VehicleId" class="form-control" asp-items="@Model.Mots" ))">
+        <options>Select Vehicle</options>
+      </select> *@
+
+      <span asp-validation-for="VehicleId" class="text-danger"></span>
+
+      <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <textarea rows="1" asp-for="Name" class="form-control"></textarea>
+        <span asp-validation-for="Name" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="MotDate" class="control-label"></label>
+        <input rows="1" asp-for="MotDate" class="form-control"></input>
+        <span asp-validation-for="MotDate" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="mileage" class="control-label"></label>
+        <input rows="1" asp-for="mileage" class="form-control"></input>
+        <span asp-validation-for="mileage" class="text-danger"></span>
+      </div>
+
+      <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <input rows="1" asp-for="Status" class="form-control"></input>
+        <span asp-validation-for="Status" class="text-danger"></span>
+      </div>
+
+
+      <div class="form-group">
+        <label asp-for="Report" class="control-label"></label>
+        <textarea rows="5" asp-for="Report" class="form-control"></textarea>
+        <span asp-validation-for="Report" class="text-danger"></span>
+      </div>
+
+      <!-- form group to submit the new review and create and link back to index -->
+      <div class="form-group mb-7">
+        <input type="submit" value="Create" class="btn btn-primary" />
+        <a class="btn btn-secondary" asp-action="Index" asp-route-id=Index>Cancel</a>
+      </div>
+
+
+  </form>
+
+
+  @section Scripts {
+  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+  }

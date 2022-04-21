@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj": {}
+    "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj": {
+    "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj",
         "projectName": "FMS.Data",
-        "projectPath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj",
+        "projectPath": "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj",
         "packagesPath": "C:\\Users\\Neil Browne\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\obj\\",
+        "outputPath": "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Neil Browne\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -70,14 +70,14 @@
         }
       }
     },
-    "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj": {
+    "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj",
+        "projectUniqueName": "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj",
         "projectName": "FMS.Test",
-        "projectPath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj",
+        "projectPath": "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\FMS.Test.csproj",
         "packagesPath": "C:\\Users\\Neil Browne\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\obj\\",
+        "outputPath": "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Neil Browne\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -92,8 +92,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj": {
-                "projectPath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj"
+              "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj": {
+                "projectPath": "C:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Data\\FMS.Data.csproj"
               }
             }
           }

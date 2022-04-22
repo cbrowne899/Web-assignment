@@ -1,0 +1,21 @@
+@model MotSearchViewModel
+
+<!-- search form -->
+<form asp-controller="Mot" asp-action="Index" class="d-flex flex-row align-items-center">
+    <div class="form-check me-3">
+        <input class="form-check-input" type="radio" asp-for="Range" value="ALL">
+        <label class="form-check-label" for="Range">All</label>
+    </div>
+    <div class="form-check me-3">
+        <input class="form-check-input" type="radio" asp-for="Range" value="PASS">
+        <label class="form-check-label" for="Range">Pass</label>
+    </div>
+    <div class="form-check me-3">
+        <input class="form-check-input" type="radio" asp-for="Range" value="FAIL" >
+        <label class="form-check-label" for="Range">Fail</label>
+    </div>
+
+    <input class="form-control me-2" asp-for="Query" placeholder="Search..">
+   
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>

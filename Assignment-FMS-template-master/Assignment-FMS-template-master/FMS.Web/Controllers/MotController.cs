@@ -3,57 +3,86 @@ using Microsoft.AspNetCore.Mvc;
 using FMS.Web.Models;
 using FMS.Data.Models;
 using FMS.Data.Services;
+using System.Security.Claims;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
+using System.Net;
 
 
 namespace MMS.Web.Controllers
 {
-    //[Authorize]
+
     public class MotController : Controller 
     {
         private readonly IFleetService svc;
         
-        public MotController()
+        public MotController(IFleetService ss)
         {
-            svc = new FleetServiceDb();
+            svc = ss;
         }
 
+    
+        //GET/mot/index
+        public IActionResult Index (MotSearchViewModel m )
+    {       
+            // set the viewmodel Mot property by calling service method 
+            // using the range and query values from the viewmodel 
+             m.Mots = svc.SearchMots(m.Range, m.Query);
 
-        // GET /review/index
-        public IActionResult Index()
+             return View (m);
+    }
+
+
+        //display page containing JS query
+       public IActionResult Query()
         {
-            // get all reviews
-            var mot =svc.GetAllMots();
+            return View();
 
+        }
+        // display page containing Vue query
+        public IActionResult VQuery()
+        {
+            return View();
+        }
+    
+        //
+         public IActionResult Details(int id)
+        {
+            var mot = svc.GetMotById(id);
+            if (mot == null)
+            {
+                
+                //Alert("Mot Not Found", AlertType.warning);  
+                return RedirectToAction(nameof(Index));             
+            }
 
-            // pass reviews to view
             return View(mot);
-       }
+        }
 
-       //Get/ review/delete/{id}
-       [Authorize(Roles="admin,manager")]
+       //Get/ mot/delete/{id}
+      
        public IActionResult Delete(int id)
        {
            var m = svc.GetMotById(id);
 
            if (m == null)
            {
-               return NotFound();
+               //Alert("Mot Not Found", AlertType.warning);  
+                return RedirectToAction(nameof(Index));  
     
            }
            return View(m);
        }
       
-        //  POST /reviews/delete/{id}
+        // POST /mot/delete/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles="admin,manager")]
         public IActionResult DeleteConfirm(int id)
         {
-            //retrieving the review using the service method
+            //retrieving the MOT using the service method
             var m1 = svc.GetMotById(id);
-            //deleting the review using the service method
+            //deleting the MOT using the service method
             svc.DeleteMot(id);
             //alerting the user that the review has been deleted
             //Alert("Review {m1.Id} Was Deleted", AlertType.danger);
@@ -63,54 +92,34 @@ namespace MMS.Web.Controllers
             
         }
        
-        // GET /review/create
-        [Authorize(Roles="admin,manager")]
+        // GET /mot/create
         public IActionResult Create()
         {
-            // // retrieve all movies
-            // var v = svc.GetAllMots();
+            // retrieve all vehicles
+            //retrieve all mots
 
-            // if (v !=null)
-            // {
-            //     return null;
-            // }
+            var v=svc.GetVehicles();
+            var m= svc.GetAllMots();
 
-            //  var mot = new Mot{
-            //   VehicleId = v.VehicleId,
-            //   Name = v.Name,
-            //   MotDate = v.MotDate,
-            //   mileage = v.mileage,
-            //   Status=mvm.Status,
-            //   Report=mvm.Report
-            //   };
-            
-            // create a ReviewViewModel and set the Movie property
-            // to new SelectList(movies,"Id","Name")
-            
+        
+
+            var mvm= new MotCreateViewModel {
+             Vehicles = new SelectList(m, "Id", "Report")
+            };
             
             // render blank form
-            return View();
+            return View(mvm);
         }
        
-        // POST /review/create
+        // POST /mot/create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles="admin,manager")]
-        public IActionResult Create([Bind("MovieId, Name, Comment, Rating")] MotViewModel mvm)
+        public IActionResult Create(MotCreateViewModel mvm)
         {
-            //checking if the review model is valid
+            //checking if the mot model is valid
             if(ModelState.IsValid)
             {
-              var mot = new Mot{
-              VehicleId = mvm.VehicleId,
-              Name = mvm.Name,
-              MotDate = mvm.MotDate,
-              mileage = mvm.mileage,
-              Status=mvm.Status,
-              Report=mvm.Report
-              };
-              //adding the review using the service method
-              svc.AddMot(mvm.VehicleId, mvm.Name, mvm.MotDate, mvm.mileage, mvm.Status, mvm.Report);
+              svc.CreateMot(mvm.VehicleId, mvm.Name, mvm.mileage, mvm.Status, mvm.Report);
               //Alert("New MOT Record Was Created", AlertType.info);
               return RedirectToAction(nameof(Index));
             }

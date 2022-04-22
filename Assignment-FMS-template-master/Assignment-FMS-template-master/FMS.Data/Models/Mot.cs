@@ -1,13 +1,16 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace FMS.Data.Models
+
 {
+     public enum MotRange {PASS, FAIL, ALL} //enum class 
     public class Mot
     {
-        public int Id { get; set; }
         
-        // suitable mot attributes / relationships
+        public int Id { get; set; }
+        //motID
 
         [Required]
         public string Name {get; set; }
@@ -26,9 +29,10 @@ namespace FMS.Data.Models
         public String Report {get; set;}
 
         //EF Dependant Relationship - Mot belongs to Vehicle
-        public int VehicleId {get; set;}
+        public int VehicleId {get; set;} //foreign key
 
-        //[JsonIgnore]
+        //navigation property
+        [JsonIgnore]
         public Vehicle Vehicle {get; set;}
 
         

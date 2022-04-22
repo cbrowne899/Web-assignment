@@ -6,6 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
        
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddCookieAuthentication();
+builder.Services.AddScoped<IFleetService, FleetServiceDb>();
+
+
 
 var app = builder.Build();
 
@@ -26,6 +30,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllerRoute(
     name: "default",

@@ -7,14 +7,13 @@
         <h3 class="mb-4">CreateVehicle</h3>
 
         <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
 
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+</div>
             <!-- hidden ID --- not be editable by user but must be passed -->
-            <!-- to controller so that movie is correctly edited -->
             <input type="hidden" asp-for="VehicleId" class="form-control" />
 
-            <!-- form groups to display different movie attributes for editing -->
+            <!-- form groups to display different vehicle attributes for editing -->
 
             <div class="form-group">
                 <label asp-for="Reg" class="control-label"></label>
@@ -80,7 +79,7 @@
             <!-- submit button and cancel link which navigates to Movie Index action -->
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
-                <a class="btn btn-secondary" asp-action="index">Cancel</a>
+                <a class="btn btn-secondary" asp-action="Index">Cancel</a>
             </div>
         </form>
     </div>

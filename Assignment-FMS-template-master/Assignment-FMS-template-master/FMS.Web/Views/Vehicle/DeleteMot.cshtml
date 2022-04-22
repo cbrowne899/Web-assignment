@@ -1,5 +1,6 @@
 @model Mot
-<partial name="_Breadcrumbs" model=@(new []{ ("/","Home"), ("/mot","Mots"), ("","Delete") })>
+<partial name="_Breadcrumbs" model=@(new []{ ("/","Home"), ("/mot","Mots"), ($"/vehicle/details/{Model.Id}",$"{Model.Id}"),
+ ("","Delete") })>
     <div>
         <!-- displays reviews with all the review details to ensure user is deleting
              the correct review -->
@@ -32,10 +33,11 @@
             <!-- Form with buttons to submit post request to DeleteConfirmReview in
              Movie controller and a cancel button to return user to movie 
              index-->
-            <form asp-controller="Movie" asp-action="DeleteConfirmReview" type="post">
+            <form asp-action="MotDeleteConfirm" type="post">
                 <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="VehicleId" />
                 <input type="submit" value="Confirm" class="btn btn-danger" />
-                <a class="btn btn-link" asp-controller="Vehicle" asp-action="Index">Cancel</a>
+                <a class="btn btn-link" asp-controller="Vehicle" asp-action="Details" asp-route-id ="@Model.Id">Cancel</a>
             </form>
         </div>
 

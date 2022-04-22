@@ -1,12 +1,20 @@
-@model IList<Mot>
+@model MotSearchViewModel
 
 <h3>Mot List</h3>
 
+<partial name="_Breadcrumbs" model=@(new [] { ("/", "Home"), ("/mot", "Mots"), ("","Search") })>
+
 <!-- button to create a review for the admin and manager user-->
-<a asp-condition=@(User.IsInRole("admin") || User.IsInRole("manager")) class="btn btn-sm btn-secondary"
+ 
+ <div class="my-15 d-flex flex-row justify-content-between align-items-center">
+  <a class="btn btn-sm btn-secondary" 
    asp-controller="Mot" asp-action="Create">
   <i style="color:white" class="bi bi-pencil mr-3"></i>Add a new Mot 
 </a>
+</div>
+
+<partial name="_Search" /> 
+
 
 <!-- table to display all the reviews and their details -->
 <div class="mb-1">
@@ -18,9 +26,11 @@
     <th>Mileage</th>
     <th>Status</th>
     <th>Report</th>
+    <th>Actions</th>
   </thead>
   <tbody>
-    @foreach (var m in Model)
+    
+    @foreach (var m in Model.Mots)
     {
       <tr>
         <td>@m.Vehicle.VehicleId</td>
@@ -29,10 +39,15 @@
         <td>@m.Status</td>
         <td>@m.Report</td>
         <td>
-          <!--a asp-condition=@(User.IsInRole("admin") || User.IsInRole("manager")) class="btn btn-sm btn-danger"-->
-          <a asp-controller="Mot" asp-action="Delete" asp-route-id=@m.Id><i style="color:white"
+         @* <!--a asp-condition=@(User.IsInRole("admin") || User.IsInRole("manager")) class="btn btn-sm btn-danger"-->*@
+          
+           @* <a asp-controller="Mot" asp-action="Delete" asp-route-id="@m.VehicleId"><i class="bi bi-lightbulb"></i> Details</a>  *@
+           
+           <a asp-action="Details" asp-route-id=@m.Id><i style="color:grey"
+            class="bi bi-collection-fill"></i>Details</a>
+         <a asp-controller="Mot" asp-action="Delete" asp-route-id=@m.Id><i style="color:black"
             class="bi bi-trash"></i>Delete</a>
-        </td>
+        </td> 
       </tr>
     }
   </tbody>

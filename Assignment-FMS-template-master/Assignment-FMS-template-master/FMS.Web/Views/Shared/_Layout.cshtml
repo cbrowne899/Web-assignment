@@ -14,12 +14,14 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Fleet</a>
+            <div class="container">
+                @* <a class "navbar-brand" href="#"> *@
+                 @* <img src -"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsXVEQ7_3Cf7m5i2he8reSRpXgbmH7zZA2g&usqp=CAU" alt="Fleet" class = "rounded-pill"> *@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                </a>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                    
                     <!-- login partial can go here -->
@@ -34,34 +36,44 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
                         </li>
-                         <li class="nav-item">
+                         @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Mot" asp-action="Index">Mot Records</a>
-                        </li>  
+                        </li>   *@
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Vehicle" asp-action="Index">Vehicle</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Mot" asp-action="Index">Mot Records</a>
                         </li>
-                         
 
-
-                        <!-- other nav bar items here -->
-
-                          @* <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role ="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vehicles</a>
-                            <div class ="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class ="dropdown-item" asp-controller="Vehicle" asp-action="Index" asp-route-order="regOrder">Registration</a>
+                                @* <div class="dropdown">
+                                <button class="dropbtn">Vehicles
+                                </button>
+                            <div class="dropdown-content">
+                                 <a class ="dropdown-item" asp-controller="Vehicle" asp-action="Index" asp-route-order="regOrder">Registration</a>
                             <a class ="dropdown-item" asp-controller="Vehicle" asp-action="Index" asp-route-order="makeOrder">Make</a>
                             <a class ="dropdown-item" asp-controller="Vehicle" asp-action="Index" asp-route-order="yearOrder">Year</a>
-                            </div>
-                        </li> 
-                        <li class="nav-item">
+                                    </div>
+                                    </div> *@
+
+                                     <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" 
+                               role="button" aria-expanded="false">Vehicles</a>
+                            <ul class="dropdown-menu">
+                                <li> <a class="dropdown-item" asp-controller="Vehicle" asp-action="Index" asp-route-order="regOrder">Registration</a></li>
+                                <li> <a class="dropdown-item" asp-controller="Vehicle" asp-action="Index"asp-route-order="makeOrder">Make</a></li>
+                                <li> <a class="dropdown-item" asp-controller="Vehicle" asp-action="Index"asp-route-order="VehicleIdOrder">Vehicle ID</a></li>
+                                </li>
+                                        
+                        
+                           
+                         
+                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Mot" asp-action="Index">Mot History Records</a>
-                        </li>                         *@
+                        </li>                          *@
                        
                     </ul>
                 </div>
-            </div>
+            
                         
-                                          
+              </div>                            
 
                 
             

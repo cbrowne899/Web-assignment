@@ -24,7 +24,7 @@ public class HomeController : Controller
         var about = new AboutViewModel {
             Title = "About",
             Message = "Our mission is to develop great solutions for Fleet management",
-            Formed = new DateTime(2000,10,1)
+            Formed = new DateTime(2022,04,10)
         };
         return View(about);
     }

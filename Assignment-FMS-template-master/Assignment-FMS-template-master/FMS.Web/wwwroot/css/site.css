@@ -47,3 +47,53 @@ body {
 .callout-secondary {
   border-left-color: silver;
 }
+
+.carousel-inner img {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.carousel {
+width:640px;
+height:360px;
+margin: auto;
+}
+
+a {
+  color: #44be0b;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 2px;
+  background-color: #332d2c;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 1px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 10px;
+}

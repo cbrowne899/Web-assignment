@@ -16339,6 +16339,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\Mot\\Details.cshtml",
+      "TargetPath": "Views\\Mot\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\Vehicle\\Delete.cshtml",
       "TargetPath": "Views\\Vehicle\\Delete.cshtml",
       "FileKind": "mvc"
@@ -16346,6 +16351,11 @@
     {
       "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\Mot\\Index.cshtml",
       "TargetPath": "Views\\Mot\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\Vehicle\\_Mots.cshtml",
+      "TargetPath": "Views\\Vehicle\\_Mots.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16389,6 +16399,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\Mot\\_Search.cshtml",
+      "TargetPath": "Views\\Mot\\_Search.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -16411,6 +16426,11 @@
     {
       "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Neil Browne\\Documents\\Web\\Web-assignment\\Assignment-FMS-template-master\\Assignment-FMS-template-master\\FMS.Web\\Views\\Vehicle\\_DeleteModal.cshtml",
+      "TargetPath": "Views\\Vehicle\\_DeleteModal.cshtml",
       "FileKind": "mvc"
     },
     {

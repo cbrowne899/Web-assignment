@@ -26,45 +26,32 @@ namespace FMS.Data.Services
 
         // ==================== Fleet Management ==================
        
-        // implement IFleetService methods here
-
-        //public IList<Vehicle> vehicle {get; set;}
         
-        // public List<Vehicle> GetVehicles(string order=null)
-        // {
-        //     List<Vehicle> vehicle = new List<Vehicle>();
-        //    switch (order)
-        //     {
-        //         case "regOrder":
-        //          vehicle = db.Vehicles.OrderBy( v=> v.Reg).ToList();
-        //          break;
-        //          case "makeOrder":
-        //          vehicle = db.Vehicles.OrderBy(v=> v.Make).ToList();
-        //          break;
-        //          case "yearOrder":
-        //          vehicle = db.Vehicles.OrderBy(v=> v.Year).ToList();
-        //          break;
-                
-        //         default:
-        //          vehicle = db.Vehicles.ToList();
-        //          break;
-        //     }
-        //          return vehicle;
-
-        //    }
-
-        public List<Vehicle> GetVehicles()
+        //retrieve list of Vehicles ordered by a certain property
+        public List<Vehicle> GetVehicles(string order=null)
         {
-            
-             var vehicle= db.Vehicles.ToList();
-
-             return vehicle;
+            List<Vehicle> vehicle = new List<Vehicle>();
+           switch (order)
+            {
+                case "regOrder":
+                 vehicle = db.Vehicles.OrderBy( v=> v.Reg).ToList();
+                 break;
+                 case "makeOrder":
+                 vehicle = db.Vehicles.OrderBy(v=> v.Make).ToList();
+                 break;
+                 case "yearOrder":
+                 vehicle = db.Vehicles.OrderBy(v=> v.VehicleId).ToList();
+                 break;
+                 default:
+                 vehicle = db.Vehicles.ToList();
+                 break;
+            }
+                 return vehicle;
 
            }
-        
 
-    
-        //retrieve vehicle by registration
+        
+        //retrieve Vehicle by Id
         public Vehicle GetVehicle(int id)
         {
             return db.Vehicles
@@ -72,20 +59,26 @@ namespace FMS.Data.Services
                             .FirstOrDefault(v => v.VehicleId == id);
         }
 
+        //retrieve Vehicle by Registration
         public Vehicle GetVehicleByReg(string reg)
         {
             return db.Vehicles.FirstOrDefault(v => v.Reg == reg);
         }
 
+        //Add a new Vehicle - checking no vehicle with the same Registration No exists
         public Vehicle AddVehicle(string reg, string make, string model, int year, string fueltype, string bodytype, string transmissiontype, int doors, DateTime mot)
         {
             var exists = GetVehicleByReg(reg);
-            if (exists !=null)
+
+            if (exists !=null) //if not returned null - can not add 
+
             {
-                return null;
+                return null; //reg in use so can't create Vehicle
             }
 
-            var vehicle = new Vehicle
+            var vehicle = new Vehicle  //reg is unique so we can create Vehicle
+           
+                //id automatically set by database
             {
                 Reg = reg,
                 Make=make,
@@ -95,14 +88,17 @@ namespace FMS.Data.Services
                 BodyType= bodytype,
                 TransmissionType= transmissiontype, 
                 Doors= doors, 
-                MotDue = mot
+                MotDue = DateTime.Now
+
             };
             db.Vehicles.Add(vehicle);
             db.SaveChanges();
-
             return vehicle;
 
         }
+
+
+        //adding vehicle through passing a Vehicle as a parament
         public Vehicle AddVehicle(Vehicle v1)
         
         {
@@ -123,7 +119,9 @@ namespace FMS.Data.Services
                 BodyType = v1.BodyType,
                 TransmissionType=v1.TransmissionType,
                 Doors=v1.Doors,
-                MotDue =v1.MotDue
+                MotDue =v1.MotDue,
+
+                
                 
             };
             db.Vehicles.Add(vehicle); 
@@ -132,6 +130,7 @@ namespace FMS.Data.Services
             return vehicle;
         }
 
+        //updating vehicle with details in updated
         public Vehicle UpdateVehicle (Vehicle updated)
         {
             var vehicle = GetVehicle(updated.VehicleId);
@@ -140,6 +139,8 @@ namespace FMS.Data.Services
             {
                 return null;
             }
+
+            //updating details of the vehicle retrieved 
             vehicle.Reg= updated.Reg;
             vehicle.Make=updated.Make;
             vehicle.Model=updated.Model;
@@ -148,8 +149,9 @@ namespace FMS.Data.Services
             vehicle.BodyType=updated.BodyType;
             vehicle.Doors=updated.Doors;
             vehicle.MotDue=updated.MotDue;
+            
 
-            db.SaveChanges();
+            db.SaveChanges();     //save changes
             return vehicle;
     
         }
@@ -175,6 +177,7 @@ namespace FMS.Data.Services
     
         // ==================== MOT Management ==================
 
+        //retriving Mots via id 
         public Mot GetMotById(int id)
         {
             return db.Vehicles
@@ -192,24 +195,48 @@ namespace FMS.Data.Services
         }
 
 
-        public Mot AddMot(int vehicleId, string name, DateTime motdate, int Mileage, string status, string report)
+        //creating new mot
+        public Mot CreateMot(int VehicleId, string name, int mileage, string status, string report)
         {
-            var vehicle = GetVehicle(vehicleId);
+            var vehicle = GetVehicle(VehicleId);
             if (vehicle == null) 
             return null;
 
             var mot = new Mot {
-            //Id created by Database
-            Name = name,        
+            //Id created by Database 
+            VehicleId= VehicleId,
+            Name = name,
+            mileage = mileage,
+            Status = status,      
             MotDate = DateTime.Now,
-            mileage= Mileage,
-            Status= status,
             Report = report
             };
+
+            vehicle.MotDue= DateTime.Now.AddMonths(12);
             db.Mots.Add(mot);
             db.SaveChanges(); // write to database
             return mot;
         }
+
+
+        // public Mot AddMot(int vehicleId, string name, DateTime motdate, int Mileage, string status, string report)
+        // {
+        //     var vehicle = GetVehicle(vehicleId);
+        //     if (vehicle == null) 
+        //     return null;
+
+        //     var mot = new Mot {
+        //     //Id created by Database
+        //     Name = name,        
+        //     MotDate = DateTime.Now,
+        //     mileage= Mileage,
+        //     Status= status,
+        //     Report = report
+        //     };
+        //     db.Mots.Add(mot);
+        //     db.SaveChanges(); // write to database
+        //     return mot;
+        // }
 
         public bool DeleteMot(int id)
         {
@@ -231,6 +258,33 @@ namespace FMS.Data.Services
             return db.Mots
                     .Include(m=> m.Vehicle)
                     .ToList();
+        }
+
+        public List<Mot> GetFailMots()
+        {
+            return db.Mots
+                    .Include(m=> m.Vehicle)
+                    .Where (m=> m.Status=="Fail")
+                    .ToList();
+        }
+
+        public List<Mot> SearchMots(MotRange range, string query)
+        {
+            query=query ==null? "": query.ToLower();
+
+            var results =db.Mots
+                            .Include(m=> m.Vehicle)
+                            .Where(m=> (m.Report.ToLower().Contains(query) ||
+                            m.Vehicle.Reg.ToLower().Contains(query)
+                            // )&& 
+                            // (range == MotRange.ALL ||
+                            // range == MotRange.PASS ||
+                            // range = MotRange.FAIL
+                            // 
+                            )
+
+                            ).ToList();
+                            return results;
         }
 
 

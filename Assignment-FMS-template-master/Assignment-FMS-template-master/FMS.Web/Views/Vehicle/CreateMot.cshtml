@@ -1,19 +1,27 @@
 @model MotCreateViewModel
 
-@* <partial name="_Breadcrumbs" model=@(new [] { ("/", "Home"), ("/vehicle", "Vehicles"), ($"/vehicle/details/{Model.VehicleId}",
-    $"{Model.VehicleId}"), ("","Create Mot") })> *@
+  <partial name="_Breadcrumbs" model=@(new [] { 
+     ("/", "Home"), ("/vehicle", "Vehicles"), ($"/vehicle/details/{Model.VehicleId}",
+    $"{Model.VehicleId}"), ("","Create Mot") })>  
 
-    <h3 class="mt-4 mb-4">Create Mot - @Model.reg (@Model.Year)</h3>
+    <h3 class="mt-4 mb-4">Add New Mot Record</h3>
 
     <div class="card rounded shadow p-3">
-        <form asp-action="Create Mot">
+        <form asp-action="CreateMot">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
 
 
-                <div class="form-group">
-                    <!-- hidden field to store MovieId -->
-                    <input type="hidden" asp-for="VehicleId" class="form-control" />
+                <input type="hidden" asp-for="VehicleId" class="form-control" />
+                    
+    
+
+                     <div class="form-group">
+                        <label asp-for="VehicleId" class="control-label"></label>
+                        <textarea rows="1" asp-for="VehicleId" class="form-control"></textarea>
+                        <span asp-validation-for="VehicleId" class="text-danger"></span>
+                    </div>
 
 
                     <!-- text area for user to input name -->
@@ -34,7 +42,7 @@
                     <div class="form-group">
                         <label asp-for="Status" class="control-label"></label>
                         <textarea rows="5" asp-for="Status" class="form-control"></textarea>
-                        <span asp-validation-for="Status" class="text-danger"></span>
+                        <span asp-validation-for="Status" class="text-danger"></span> 
                     </div>
 
                      <div class="form-group">
